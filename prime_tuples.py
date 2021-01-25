@@ -1,40 +1,38 @@
 # Cook-Off January 2021
-# Q-3
+# Q-3 - Originally got TLE. Upsolved. 
 
-https://www.codechef.com/COOK126C/problems/PTUPLES
+Ques: https://www.codechef.com/COOK126C/problems/PTUPLES
+Ans: https://www.youtube.com/watch?v=qpC2KAFCGmY&list=PLQXZIFwMtjowv0cQH4zJmcm3sIz5rGEJi&index=3
 
-# Result: TLE
+'''
+1. Make a global sieve
+2. Make a global answer list and precompute answers for all the values of N.
+3. Then, for each test case, result will come in O(1) time.
+'''
 
-def sieve(n):
-    primes = [True for i in range(n+1)]
-    
-    for p in range(2,int(pow(n,0.5))+1):
+def makeSieve():
+    for p in range(2,int(pow(size,0.5))+1):
         if primes[p]:
             for i in range(2*p, len(primes), p):
                 primes[i] = False
 
-    return primes
+def generateAnswer():
+    cnt = 0
+    for c in range(5,size):
+        if primes[c] and primes[c-2]:
+            cnt += 1
+        ans[c] = cnt
 
-def solve(n):
-    if n < 5: return 0
-    
-    primes = sieve(n)
+size = 1000001
+primes = [True for i in range(size)]
+ans = [0]*size
 
-    a=2
-    
-    ans = 0
-    
-    for b in range(3,n+1):
-        if primes[b]:
-            c = a + b
-            if c < n+1 and primes[c]:
-                ans += 1
-
-    return ans
+makeSieve()
+generateAnswer()
 
 tc = int(input())
 
 for _ in range(tc):
     n = int(input())
     
-    print(solve(n))
+    print(ans[n])
