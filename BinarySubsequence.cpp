@@ -1,7 +1,7 @@
 
 // https://www.codechef.com/problems/BINSUBS
 
-// Q-4
+// Q-5
 
 #include <bits/stdc++.h>
 
