@@ -7,12 +7,12 @@
 using namespace std;
 
 void solve(vector<int> &intro, vector<vector<int>> &durations){
-    int sum = 0;
+    long long int sum = 0;
 
     for (int i=0; i<durations.size(); i++){
         vector<int> episodes = durations[i];
 
-        int episum = episodes[0];
+        long long int episum = episodes[0];
 
         if (episodes.size() > 1){            
             for (int j=1; j<episodes.size(); j++){
