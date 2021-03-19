@@ -25,3 +25,28 @@ int main() {
 	}
 	return 0;
 }
+
+Solution-2
+	
+int main() 
+{
+    long long int t;
+    cin>>t;
+    while(t--)
+    {
+        long long int n,i,max = 0,count = 0;
+        cin>>n;
+        long long int arr[n];
+        for(i = 0;i<n;i++)
+        {
+            cin>>arr[i];
+        }
+        sort(arr,arr+n);
+        for(i = 0;i<n;i++)
+        {
+            count = count + (arr[i] - arr[0]);
+        }
+        cout<<count<<endl;
+    }
+	return 0;
+}
